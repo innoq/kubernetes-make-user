@@ -20,7 +20,7 @@ Have `openssl` and `kubectl` and `python3` (3.5 or newer) installed on
 your machine and copy `src/kubernetes-make-user` to somewhere in your
 `$PATH`.
 
-### Container way (not yet implemented)
+### Container way
 
 Assuming you have Docker installed already, run something like
 
@@ -35,8 +35,9 @@ Something like the following should work:
 
 
 ```
-docker run -ti --rm -v "$(pwd):/data" local-only/kubernetes-make-user:latest \
-      --user="$(id -u):$(id -g)" kubernetes-make-user ...
+docker run -ti --rm -v "$(pwd):/data" --user="$(id -u):$(id -g)" \
+    local-only/kubernetes-make-user:latest \
+    kubernetes-make-user ...
 ```
 
 The `--user="$(id -u):$(id -g)"` stance is useful so the generated
