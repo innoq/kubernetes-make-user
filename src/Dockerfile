@@ -7,6 +7,6 @@ RUN set -e -x && \
   apt-get install -y python3 openssl && \
   mkdir -p /data
 
-COPY kubernetes-make-user /usr/local/bin
+COPY kubernetes_make_user /usr/local/bin
 VOLUME /data
 WORKDIR /data

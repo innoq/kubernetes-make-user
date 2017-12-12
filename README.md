@@ -17,27 +17,27 @@ part of the official documentation.
 ### Direct way
 
 Have `openssl` and `kubectl` and `python3` (3.5 or newer) installed on
-your machine and copy `src/kubernetes-make-user` to somewhere in your
+your machine and copy `src/kubernetes_make_user` to somewhere in your
 `$PATH`.
 
 ### Container way
 
 Assuming you have Docker installed already, run something like
 
-    cd src && docker build -t local-only/kubernetes-make-user:latest .
+    cd src && docker build -t local-only/kubernetes_make_user:latest .
 
 (There probably is no Docker registry at `local-only`, but that's ok
 as long as you don't try to interact with it.  Just neither `docker
 push` nor `docker pull` this image.)
 
-You can then need to use `docker` to run `kubernetes-make-user`.
+You can then need to use `docker` to run `kubernetes_make_user`.
 Something like the following should work:
 
 
 ```
 docker run -ti --rm -v "$(pwd):/data" --user="$(id -u):$(id -g)" \
-    local-only/kubernetes-make-user:latest \
-    kubernetes-make-user ...
+    local-only/kubernetes_make_user:latest \
+    kubernetes_make_user ...
 ```
 
 The `--user="$(id -u):$(id -g)"` stance is useful so the generated
@@ -106,7 +106,7 @@ Short version:
 
 Have the cluster CA file `ca.key` in the current directory and run
 
-    kubernetes-make-user --user=<user> --group=<group1> --group=<group2> --days=60
+    kubernetes_make_user --user=<user> --group=<group1> --group=<group2> --days=60
 
 This produces a client key file `<user>.key` and a client certificate
 file `<user>.crt`.
